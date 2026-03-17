@@ -1,0 +1,762 @@
+/* ============================================================
+   GARGI PATEL — Life Sciences Portfolio
+   style.css
+   ============================================================ */
+
+/* ─── CSS VARIABLES ─── */
+:root {
+  --bg:         #04100d;
+  --bg2:        #071a14;
+  --green:      #00e8a2;
+  --green-dim:  #00b37d;
+  --green-pale: #00e8a215;
+  --amber:      #f0c060;
+  --text:       #d4ede5;
+  --text-dim:   #7aada0;
+  --border:     #0d3328;
+  --cell:       #0a2620;
+}
+
+.cert-link {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+  text-decoration: none;
+  margin-top: 4px;
+  display: inline-block;
+  transition: opacity 0.2s;
+}
+.cert-link:hover { opacity: 0.7; }
+
+
+/* ─── RESET & BASE ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ─── CUSTOM CURSOR ─── */
+#cursor {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: var(--green);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s, background 0.2s;
+  mix-blend-mode: screen;
+}
+
+#cursor-ring {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--green-dim);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: all 0.18s ease;
+  mix-blend-mode: screen;
+}
+
+/* ─── BACKGROUND CANVAS ─── */
+#bio-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+/* ─── NAVIGATION ─── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 48px;
+  background: linear-gradient(to bottom, #04100d, transparent);
+  backdrop-filter: blur(2px);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--green);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+}
+
+.nav-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--green);
+}
+
+/* ─── SECTIONS WRAPPER ─── */
+.sections {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── HERO ─── */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 48px 80px;
+  position: relative;
+}
+
+.hero-inner {
+  max-width: 1100px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.hero-tag {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-tag::before {
+  content: '';
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: var(--green);
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 7vw, 88px);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  color: #eaf7f2;
+  margin-bottom: 28px;
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--green);
+}
+
+.hero-desc {
+  color: var(--text-dim);
+  font-size: 13px;
+  line-height: 1.9;
+  max-width: 460px;
+  margin-bottom: 40px;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  border: 1px solid var(--green-dim);
+  color: var(--green);
+  padding: 14px 28px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.hero-cta:hover {
+  background: var(--green);
+  color: var(--bg);
+}
+
+.hero-cta svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ─── MICROSCOPE VIEWER ─── */
+.hero-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scope-frame {
+  position: relative;
+  width: 340px;
+  height: 340px;
+}
+
+.scope-ring {
+  position: absolute;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  animation: spin linear infinite;
+}
+
+.scope-ring:nth-child(1) { inset: 0;    animation-duration: 40s; }
+.scope-ring:nth-child(2) { inset: 30px; animation-duration: 28s; animation-direction: reverse; border-color: #0d3328; }
+.scope-ring:nth-child(3) { inset: 60px; animation-duration: 18s; border-style: dashed; border-color: #0d3328; }
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.scope-inner {
+  position: absolute;
+  inset: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, #0a2e22, #04100d);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#cell-canvas {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.scope-data {
+  position: absolute;
+  bottom: -36px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  color: var(--text-dim);
+}
+
+.scope-label {
+  position: absolute;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--green-dim);
+  background: var(--bg);
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+}
+
+.scope-label.tl { top: 14px;    left: 14px; }
+.scope-label.tr { top: 14px;    right: 14px; }
+.scope-label.bl { bottom: 14px; left: 14px; }
+
+/* ─── DIVIDER ─── */
+.divider {
+  max-width: 1100px;
+  margin: 0 auto;
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+/* ─── SECTION COMMONS ─── */
+section {
+  padding: 100px 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--green-dim);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  max-width: 60px;
+}
+
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: #eaf7f2;
+  margin-bottom: 52px;
+}
+
+h2 em {
+  font-style: italic;
+  color: var(--green);
+}
+
+/* ─── ABOUT ─── */
+#about .about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.photo-placeholder {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: var(--cell);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: var(--text-dim);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.4;
+}
+
+.photo-placeholder svg {
+  width: 48px;
+  height: 48px;
+  stroke: var(--green-dim);
+  opacity: 0.5;
+  position: relative;
+  z-index: 1;
+}
+
+.photo-placeholder span {
+  position: relative;
+  z-index: 1;
+}
+
+.photo-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--green-dim);
+  border-style: solid;
+  opacity: 0.7;
+}
+
+.photo-corner.tl { top: -1px;    left: -1px;  border-width: 1px 0 0 1px; }
+.photo-corner.tr { top: -1px;    right: -1px; border-width: 1px 1px 0 0; }
+.photo-corner.bl { bottom: -1px; left: -1px;  border-width: 0 0 1px 1px; }
+.photo-corner.br { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+
+.about-text p {
+  color: var(--text-dim);
+  line-height: 2;
+  margin-bottom: 24px;
+  font-size: 13px;
+}
+
+.about-text p strong {
+  color: var(--text);
+  font-weight: 400;
+}
+
+.cert-list {
+  margin-top: 40px;
+}
+
+.cert-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.cert-icon {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--green);
+  font-size: 14px;
+}
+
+.cert-name {
+  font-size: 12px;
+  color: var(--text);
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.cert-org {
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+}
+
+/* ─── SKILLS ─── */
+#skills .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.skill-card {
+  background: var(--cell);
+  border: 1px solid var(--border);
+  padding: 32px 28px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.skill-card:hover {
+  border-color: var(--green-dim);
+  transform: translateY(-4px);
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--green), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+}
+
+.skill-petri {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-petri canvas {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.skill-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.skill-desc {
+  font-size: 11px;
+  color: var(--text-dim);
+  line-height: 1.8;
+}
+
+.skill-tags {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill-tag {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green-dim);
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+}
+
+/* ─── EXPERIENCE ─── */
+#experience .exp-timeline {
+  position: relative;
+  padding-left: 40px;
+}
+
+.exp-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--green-dim), transparent);
+}
+
+.exp-item {
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.exp-item::before {
+  content: '';
+  position: absolute;
+  left: -44px;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 12px var(--green);
+}
+
+.exp-date {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--green-dim);
+  margin-bottom: 8px;
+}
+
+.exp-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.exp-org {
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 0.12em;
+  margin-bottom: 16px;
+}
+
+.exp-desc {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.9;
+  max-width: 640px;
+}
+
+.exp-pills {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.exp-pill {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--green-pale);
+  color: var(--green);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+/* ─── EDUCATION ─── */
+#education .edu-card {
+  background: var(--cell);
+  border: 1px solid var(--border);
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+
+.edu-degree {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.edu-school {
+  font-size: 12px;
+  color: var(--green-dim);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.edu-detail {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.8;
+}
+
+.edu-year {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--border);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+/* ─── CONTACT ─── */
+#contact {
+  text-align: center;
+}
+
+#contact h2 {
+  margin-bottom: 20px;
+}
+
+.contact-sub {
+  color: var(--text-dim);
+  font-size: 13px;
+  margin-bottom: 48px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--border);
+  padding: 16px 28px;
+  text-decoration: none;
+  color: var(--text-dim);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  cursor: none;
+}
+
+.contact-link:hover {
+  border-color: var(--green-dim);
+  color: var(--green);
+  background: var(--green-pale);
+}
+
+.contact-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 0.12em;
+}
+
+/* ─── SCROLL REVEAL ANIMATION ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar        { width: 4px; }
+::-webkit-scrollbar-track  { background: var(--bg); }
+::-webkit-scrollbar-thumb  { background: var(--green-dim); border-radius: 2px; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .nav-links { gap: 20px; }
+  section { padding: 70px 24px; }
+  #hero { padding: 100px 24px 60px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 60px; }
+  .hero-right { display: none; }
+  #about .about-grid { grid-template-columns: 1fr; }
+  #skills .skills-grid { grid-template-columns: 1fr 1fr; }
+  .edu-card { grid-template-columns: 1fr; }
+  .edu-year { font-size: 32px; }
+}
+
+@media (max-width: 600px) {
+  #skills .skills-grid { grid-template-columns: 1fr; }
+  .contact-links { flex-direction: column; align-items: center; }
+  footer { flex-direction: column; gap: 8px; text-align: center; }
+}

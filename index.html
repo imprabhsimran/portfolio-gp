@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gargi Patel — Life Sciences Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- Background canvas: floating microorganism particles -->
+  <canvas id="bio-canvas"></canvas>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">G. Patel</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="sections">
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-inner">
+        <div class="hero-left">
+          <div class="hero-tag reveal">Life Sciences · Healthcare · Pharma</div>
+          <h1 class="reveal">Gargi<br><em>Patel</em></h1>
+          <p class="hero-desc reveal">Biology graduate with comprehensive academic laboratory training across biological and chemical sciences. Committed to precision, scientific rigour, and quality-driven processes — seeking laboratory opportunities in life sciences and healthcare.</p>
+          <a href="#contact" class="hero-cta reveal">
+            Let's Connect
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="hero-right reveal">
+          <div class="scope-frame">
+            <div class="scope-ring"></div>
+            <div class="scope-ring"></div>
+            <div class="scope-ring"></div>
+            <div class="scope-inner">
+              <canvas id="cell-canvas"></canvas>
+            </div>
+            <div class="scope-label tl">MAG 40×</div>
+            <div class="scope-label tr">FOCUS ●</div>
+            <div class="scope-label bl">BIO · ACTIVE</div>
+            <div class="scope-data">
+              <span>CH:01</span>
+              <span>GARGI PATEL / BSC</span>
+              <span>CAP.UNIV</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-label reveal">01 — Profile</div>
+      <h2 class="reveal">About <em>Me</em></h2>
+      <div class="about-grid">
+        <div class="about-photo reveal">
+          <div class="photo-placeholder">
+            <img src="GP.jpg" alt="Profile Image" style="width: 600px; height: 800px; object-fit: cover;" />
+            <div class="photo-corner tl"></div>
+            <div class="photo-corner tr"></div>
+            <div class="photo-corner bl"></div>
+            <div class="photo-corner br"></div>
+          </div>
+        </div>
+        <div class="about-text">
+          <p class="reveal">I am a <strong>Biology graduate</strong> with an <strong>Associate of Science degree from Capilano University</strong>, equipped with comprehensive academic laboratory training across biological and chemical sciences.</p>
+          <p class="reveal">My experience in university laboratory environments has strengthened my ability to work with <strong>precision</strong>, follow structured protocols, and maintain a high standard of accuracy in experimental procedures. Through hands-on laboratory work, I have developed strong <strong>analytical thinking</strong>, careful observation skills, and a disciplined approach to <strong>scientific documentation</strong>.</p>
+          <p class="reveal">I am comfortable working in controlled laboratory settings where attention to detail, organization, and adherence to <strong>safety and quality practices</strong> are essential for producing reliable and reproducible results. I am particularly motivated to pursue laboratory opportunities that emphasize <strong>methodical analysis</strong>, technical skill development, and quality-driven scientific processes — and I am committed to contributing positively to collaborative laboratory environments.</p>
+
+          <div class="cert-list">
+            <div class="cert-item reveal">
+              <div class="cert-icon">⬡</div>
+              <div>
+                <div class="cert-name">Microbiology Certification</div>
+                <div class="cert-org">Certified · Laboratory Sciences</div>
+              </div>
+            </div>
+            <div class="cert-item reveal">
+              <div class="cert-icon">◎</div>
+              <div>
+                <div class="cert-name">Pharmacy Assistant Certification</div>
+                <div class="cert-org">Alison · Issued Jun 2024</div>
+              </div>
+            </div>
+            <div class="cert-item reveal">
+              <div class="cert-icon">△</div>
+              <div>
+                <div class="cert-name">Associate of Science — Biology</div>
+                <div class="cert-org">Capilano University · 2024</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-label reveal">02 — Expertise</div>
+      <h2 class="reveal">Core <em>Skills</em></h2>
+      <div class="skills-grid">
+
+        <div class="skill-card reveal">
+          <div class="skill-petri"><canvas class="petri-anim" data-color="0,232,162"></canvas></div>
+          <div class="skill-title">Laboratory Science</div>
+          <div class="skill-desc">Proficient in clinical lab techniques including microscopy, specimen preparation, and sterile procedures.</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Microscopy</span>
+            <span class="skill-tag">Specimen Prep</span>
+            <span class="skill-tag">Sterile Technique</span>
+            <span class="skill-tag">Microbiology</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-petri"><canvas class="petri-anim" data-color="240,192,96"></canvas></div>
+          <div class="skill-title">Pharmacy & Pharma</div>
+          <div class="skill-desc">Strong pharmaceutical fundamentals, drug interactions, dispensing protocols, and medication management knowledge.</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Dispensing</span>
+            <span class="skill-tag">Drug Safety</span>
+            <span class="skill-tag">Pharmacology</span>
+            <span class="skill-tag">Compounding</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-petri"><canvas class="petri-anim" data-color="100,200,255"></canvas></div>
+          <div class="skill-title">Healthcare & Patient Care</div>
+          <div class="skill-desc">Over two years of client-facing experience in health retail environments with a focus on informed, empathetic service delivery.</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Client Support</span>
+            <span class="skill-tag">Health Retail</span>
+            <span class="skill-tag">Communication</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-petri"><canvas class="petri-anim" data-color="200,100,255"></canvas></div>
+          <div class="skill-title">Biology & Life Sciences</div>
+          <div class="skill-desc">Academic grounding in cellular biology, genetics, human physiology, and biochemistry with applied lab coursework.</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Cell Biology</span>
+            <span class="skill-tag">Genetics</span>
+            <span class="skill-tag">Biochemistry</span>
+            <span class="skill-tag">Physiology</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-petri"><canvas class="petri-anim" data-color="0,232,162"></canvas></div>
+          <div class="skill-title">Research & Analysis</div>
+          <div class="skill-desc">Skilled in scientific documentation, data interpretation, and report writing for academic and lab settings.</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Lab Reports</span>
+            <span class="skill-tag">Data Analysis</span>
+            <span class="skill-tag">Scientific Writing</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-petri"><canvas class="petri-anim" data-color="240,192,96"></canvas></div>
+          <div class="skill-title">Soft Skills & Professionalism</div>
+          <div class="skill-desc">Strong communicator, team collaborator, and detail-oriented professional committed to continuous learning and growth.</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Teamwork</span>
+            <span class="skill-tag">Attention to Detail</span>
+            <span class="skill-tag">Time Management</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="section-label reveal">03 — Background</div>
+      <h2 class="reveal">Work <em>Experience</em></h2>
+      <div class="exp-timeline">
+
+        <div class="exp-item reveal">
+          <div class="exp-date">Oct 2023 — Present</div>
+          <div class="exp-title">Customer Service Coordinator</div>
+          <div class="exp-org">Best Buy · Greater Vancouver Area</div>
+          <div class="exp-desc">Deliver high-quality customer service in a fast-paced retail technology environment, coordinating front-end operations and resolving complex service inquiries with efficiency and professionalism. Serve as a primary point of contact for customer concerns, ensuring timely and accurate resolutions while maintaining Best Buy's service standards. Collaborate cross-functionally with sales, technical support, and operations teams to create seamless customer experiences and drive satisfaction metrics.</div>
+          <div class="exp-pills">
+            <span class="exp-pill">Customer Service</span>
+            <span class="exp-pill">Issue Resolution</span>
+            <span class="exp-pill">Team Coordination</span>
+            <span class="exp-pill">Operations Support</span>
+            <span class="exp-pill">Communication</span>
+          </div>
+        </div>
+
+        <div class="exp-item reveal">
+          <div class="exp-date">Academic Laboratory Experience</div>
+          <div class="exp-title">Academic Laboratory Practitioner</div>
+          <div class="exp-org">Capilano University · North Vancouver, BC</div>
+          <div class="exp-desc">Completed extensive hands-on laboratory training across biological and chemical sciences, applying structured experimental protocols with a strong emphasis on precision and reproducibility. Conducted microscopy, bacterial culture and identification, specimen preparation, and sterile technique procedures. Developed rigorous scientific documentation habits, analytical observation skills, and a disciplined approach to laboratory safety and quality practices consistent with controlled research environments.</div>
+          <div class="exp-pills">
+            <span class="exp-pill">Microscopy</span>
+            <span class="exp-pill">Bacterial Culture</span>
+            <span class="exp-pill">Sterile Technique</span>
+            <span class="exp-pill">Specimen Analysis</span>
+            <span class="exp-pill">Lab Safety</span>
+            <span class="exp-pill">Scientific Documentation</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="section-label reveal">04 — Academic</div>
+      <h2 class="reveal">Education &amp; <em>Training</em></h2>
+
+      <div class="edu-card reveal">
+        <div>
+          <div class="edu-degree">Associate of Science — Biology</div>
+          <div class="edu-school">Capilano University · North Vancouver, BC</div>
+          <div class="edu-detail">Comprehensive coursework in cell biology, microbiology, genetics, biochemistry, human physiology, and laboratory science. Engaged in practical lab work applying core life sciences principles.</div>
+        </div>
+        <div class="edu-year">2024</div>
+      </div>
+
+      <div class="edu-card reveal">
+        <div>
+          <div class="edu-degree">Pharmacy Assistant Certificate</div>
+          <div class="edu-school">Alison · Issued Jun 2024</div>
+          <div class="edu-detail">Pharmaceutical fundamentals, prescription processing, medication safety, dispensing protocols, and patient communication ethics. Credential ID: AC-4735-37920676</div>
+        </div>
+        <div class="edu-year">2024</div>
+      </div>
+
+
+    </section>
+
+    <hr class="divider">
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-label reveal" style="justify-content:center;">05 — Get in Touch</div>
+      <h2 class="reveal">Let's <em>Connect</em></h2>
+      <p class="contact-sub reveal">Open to opportunities in life sciences, healthcare &amp; pharmaceutical sectors.</p>
+      <div class="contact-links reveal">
+        <a href="mailto:gargi962004@email.com" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8l10 6 10-6"/></svg>
+          Email Gargi
+        </a>
+        <a href="https://www.linkedin.com/in/gargi-patel-07065b287/" target="_blank" class="contact-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v8M7 7v.01M12 10v8m0-5a3 3 0 016 0v5"/></svg>
+          LinkedIn
+        </a>
+        <a href="gargi-CV.pdf" class="contact-link" download="Gargi_Patel_CV.pdf">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 16V4m0 12l-4-4m4 4l4-4M4 20h16"/></svg>
+          Download CV
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2024 Gargi Patel · Life Sciences</span>
+    <span> Vancouver, BC · Canada</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
