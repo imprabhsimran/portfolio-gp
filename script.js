@@ -39,16 +39,16 @@ document.addEventListener('mousemove', e => {
     constructor() { this.reset(); }
 
     reset() {
-      this.x     = Math.random() * W;
-      this.y     = Math.random() * H;
-      this.type  = Math.floor(Math.random() * 4); // 0=cell, 1=rod, 2=cocci, 3=amoeba
-      this.r     = 4 + Math.random() * 18;
-      this.vx    = (Math.random() - 0.5) * 0.4;
-      this.vy    = (Math.random() - 0.5) * 0.4;
-      this.rot   = Math.random() * Math.PI * 2;
-      this.rotV  = (Math.random() - 0.5) * 0.008;
-      this.alpha = 0.2 + Math.random() * 0.5;
-      this.hue   = Math.random() < 0.7 ? '0,232,162' : '240,192,96';
+      this.x           = Math.random() * W;
+      this.y           = Math.random() * H;
+      this.type        = Math.floor(Math.random() * 4);
+      this.r           = 4 + Math.random() * 18;
+      this.vx          = (Math.random() - 0.5) * 0.4;
+      this.vy          = (Math.random() - 0.5) * 0.4;
+      this.rot         = Math.random() * Math.PI * 2;
+      this.rotV        = (Math.random() - 0.5) * 0.008;
+      this.alpha       = 0.2 + Math.random() * 0.5;
+      this.hue         = Math.random() < 0.7 ? '0,232,162' : '240,192,96';
       this.wobble      = Math.random() * Math.PI * 2;
       this.wobbleSpeed = 0.01 + Math.random() * 0.02;
     }
@@ -72,7 +72,6 @@ document.addEventListener('mousemove', e => {
       ctx.fillStyle   = `rgba(${this.hue},${this.alpha * 0.06})`;
 
       if (this.type === 0) {
-        // Circle cell with nucleus
         ctx.beginPath();
         ctx.ellipse(0, 0, this.r, this.r * (0.7 + 0.3 * Math.sin(this.wobble)), 0, 0, Math.PI * 2);
         ctx.fill();
@@ -82,7 +81,6 @@ document.addEventListener('mousemove', e => {
         ctx.stroke();
 
       } else if (this.type === 1) {
-        // Rod bacterium
         const rw = this.r * 2.5, rh = this.r * 0.8;
         ctx.beginPath();
         ctx.roundRect(-rw / 2, -rh / 2, rw, rh, rh / 2);
@@ -96,7 +94,6 @@ document.addEventListener('mousemove', e => {
         ctx.globalAlpha = 1;
 
       } else if (this.type === 2) {
-        // Cocci cluster (3 spheres in triangle)
         for (let i = 0; i < 3; i++) {
           const angle = (i / 3) * Math.PI * 2 + this.wobble;
           const px    = Math.cos(angle) * this.r * 0.6;
@@ -108,7 +105,6 @@ document.addEventListener('mousemove', e => {
         }
 
       } else {
-        // Amoeba blob
         ctx.beginPath();
         const pts = 8;
         for (let i = 0; i <= pts; i++) {
@@ -156,7 +152,6 @@ document.addEventListener('mousemove', e => {
   const cx = 90, cy = 90;
   let t = 0;
 
-  // Orbiting cells
   const cells = Array.from({ length: 5 }, (_, i) => ({
     r:      12 + Math.random() * 16,
     a:      (i / 5) * Math.PI * 2,
@@ -165,14 +160,11 @@ document.addEventListener('mousemove', e => {
     wobble: Math.random() * Math.PI * 2
   }));
 
-  // Central cell
   cells.push({ r: 22, a: 0, dist: 0, speed: 0, wobble: 0, isMain: true });
 
   function drawCell(x, y, r, time, isMain) {
     ctx.save();
     ctx.translate(x, y);
-
-    // Outer membrane
     ctx.beginPath();
     ctx.ellipse(0, 0, r, r * (0.85 + 0.1 * Math.sin(time * 2)), Math.sin(time) * 0.3, 0, Math.PI * 2);
     ctx.fillStyle   = isMain ? 'rgba(0,232,162,0.08)' : 'rgba(0,232,162,0.05)';
@@ -182,12 +174,10 @@ document.addEventListener('mousemove', e => {
     ctx.stroke();
 
     if (isMain) {
-      // Nucleus
       ctx.beginPath();
       ctx.arc(r * 0.1, -r * 0.1, r * 0.35, 0, Math.PI * 2);
       ctx.strokeStyle = 'rgba(0,232,162,0.4)';
       ctx.stroke();
-      // Nucleolus
       ctx.beginPath();
       ctx.arc(r * 0.1, -r * 0.1, r * 0.1, 0, Math.PI * 2);
       ctx.fillStyle = 'rgba(0,232,162,0.25)';
@@ -199,15 +189,12 @@ document.addEventListener('mousemove', e => {
 
   function loop() {
     ctx.clearRect(0, 0, 180, 180);
-
-    // Radial glow background
     const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, 90);
     grd.addColorStop(0, 'rgba(0,232,162,0.04)');
     grd.addColorStop(1, 'rgba(0,0,0,0)');
     ctx.fillStyle = grd;
     ctx.fillRect(0, 0, 180, 180);
 
-    // Orbiting cells
     cells.forEach(c => {
       if (c.dist === 0) return;
       c.a      += c.speed;
@@ -217,10 +204,8 @@ document.addEventListener('mousemove', e => {
       drawCell(x, y, c.r, c.wobble, false);
     });
 
-    // Centre cell
     drawCell(cx, cy, 24, t, true);
 
-    // Scanning line effect
     const scanY = (t * 30) % 180;
     ctx.beginPath();
     ctx.moveTo(0, scanY);
@@ -256,13 +241,11 @@ document.querySelectorAll('.petri-anim').forEach(cv => {
   function draw() {
     ctx.clearRect(0, 0, 64, 64);
 
-    // Agar background tint
     ctx.fillStyle = `rgba(${rgb},0.04)`;
     ctx.beginPath();
     ctx.arc(32, 32, 30, 0, Math.PI * 2);
     ctx.fill();
 
-    // Bacterial colonies — pulsing radial glow
     colonies.forEach(c => {
       const gr = ctx.createRadialGradient(c.x, c.y, 0, c.x, c.y, c.r * (1 + 0.15 * Math.sin(t)));
       gr.addColorStop(0, `rgba(${rgb},0.25)`);
@@ -273,7 +256,6 @@ document.querySelectorAll('.petri-anim').forEach(cv => {
       ctx.fill();
     });
 
-    // Petri dish rim
     ctx.beginPath();
     ctx.arc(32, 32, 30, 0, Math.PI * 2);
     ctx.strokeStyle = `rgba(${rgb},0.2)`;
@@ -302,7 +284,58 @@ const observer = new IntersectionObserver(entries => {
 
 reveals.forEach(el => observer.observe(el));
 
-// Trigger hero elements on page load immediately
 document.querySelectorAll('#hero .reveal').forEach((el, i) => {
   setTimeout(() => el.classList.add('visible'), 300 + i * 150);
+});
+
+
+/* ─── MOBILE NAV: Hamburger Menu ─── */
+document.addEventListener('DOMContentLoaded', function () {
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks  = document.querySelector('.nav-links');
+  const body      = document.body;
+
+  if (!navToggle || !navLinks) {
+    console.warn('Nav toggle or nav links not found.');
+    return;
+  }
+
+  function openMenu() {
+    navToggle.classList.add('open');
+    navLinks.classList.add('open');
+    body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    navToggle.classList.remove('open');
+    navLinks.classList.remove('open');
+    body.style.overflow = '';
+  }
+
+  navToggle.addEventListener('click', function (e) {
+    e.stopPropagation();
+    navLinks.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  document.addEventListener('click', e => {
+    if (
+      navLinks.classList.contains('open') &&
+      !navLinks.contains(e.target) &&
+      !navToggle.contains(e.target)
+    ) {
+      closeMenu();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900) closeMenu();
+  });
 });

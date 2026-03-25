@@ -17,19 +17,6 @@
   --cell:       #0a2620;
 }
 
-.cert-link {
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--green);
-  text-decoration: none;
-  margin-top: 4px;
-  display: inline-block;
-  transition: opacity 0.2s;
-}
-.cert-link:hover { opacity: 0.7; }
-
-
 /* ─── RESET & BASE ─── */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -78,6 +65,13 @@ body {
   mix-blend-mode: screen;
 }
 
+/* Hide custom cursor on touch devices */
+@media (hover: none) {
+  #cursor, #cursor-ring { display: none; }
+  body { cursor: auto; }
+  .hero-cta, .contact-link { cursor: pointer; }
+}
+
 /* ─── BACKGROUND CANVAS ─── */
 #bio-canvas {
   position: fixed;
@@ -116,7 +110,7 @@ nav {
 
 .nav-links {
   display: flex;
-  gap: 36px;
+  gap: 28px;
 }
 
 .nav-links a {
@@ -131,6 +125,28 @@ nav {
 .nav-links a:hover {
   color: var(--green);
 }
+
+/* Mobile nav hamburger */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 200;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--green);
+  transition: all 0.3s;
+}
+
+.nav-toggle.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
 /* ─── SECTIONS WRAPPER ─── */
 .sections {
@@ -178,7 +194,7 @@ nav {
 
 h1 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(52px, 7vw, 88px);
+  font-size: clamp(48px, 10vw, 88px);
   font-weight: 300;
   line-height: 1.0;
   letter-spacing: -0.01em;
@@ -335,11 +351,11 @@ section {
 
 h2 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(36px, 5vw, 56px);
+  font-size: clamp(32px, 6vw, 56px);
   font-weight: 300;
   line-height: 1.1;
   color: #eaf7f2;
-  margin-bottom: 52px;
+  margin-bottom: 40px;
 }
 
 h2 em {
@@ -351,7 +367,7 @@ h2 em {
 #about .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: 60px;
   align-items: start;
 }
 
@@ -372,12 +388,11 @@ h2 em {
   overflow: hidden;
 }
 
-.photo-placeholder::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-
-  opacity: 0.4;
+.photo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .photo-placeholder svg {
@@ -401,6 +416,7 @@ h2 em {
   border-color: var(--green-dim);
   border-style: solid;
   opacity: 0.7;
+  z-index: 2;
 }
 
 .photo-corner.tl { top: -1px;    left: -1px;  border-width: 1px 0 0 1px; }
@@ -455,7 +471,21 @@ h2 em {
   font-size: 10px;
   color: var(--text-dim);
   letter-spacing: 0.1em;
+  margin-bottom: 2px;
 }
+
+.cert-link {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+  text-decoration: none;
+  margin-top: 4px;
+  display: inline-block;
+  transition: opacity 0.2s;
+}
+
+.cert-link:hover { opacity: 0.7; }
 
 /* ─── SKILLS ─── */
 #skills .skills-grid {
@@ -467,7 +497,7 @@ h2 em {
 .skill-card {
   background: var(--cell);
   border: 1px solid var(--border);
-  padding: 32px 28px;
+  padding: 28px 24px;
   position: relative;
   overflow: hidden;
   transition: border-color 0.3s, transform 0.3s;
@@ -495,11 +525,11 @@ h2 em {
 }
 
 .skill-petri {
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   border: 1px solid var(--border);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   position: relative;
   overflow: hidden;
 }
@@ -512,10 +542,10 @@ h2 em {
 
 .skill-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 600;
   color: var(--text);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .skill-desc {
@@ -525,7 +555,7 @@ h2 em {
 }
 
 .skill-tags {
-  margin-top: 16px;
+  margin-top: 14px;
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -582,7 +612,7 @@ h2 em {
 
 .exp-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 28px;
+  font-size: clamp(20px, 4vw, 28px);
   font-weight: 600;
   color: var(--text);
   margin-bottom: 4px;
@@ -623,28 +653,28 @@ h2 em {
 #education .edu-card {
   background: var(--cell);
   border: 1px solid var(--border);
-  padding: 40px;
+  padding: 32px;
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 40px;
+  gap: 24px;
   align-items: start;
   margin-bottom: 24px;
 }
 
 .edu-degree {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 28px;
+  font-size: clamp(20px, 3.5vw, 28px);
   font-weight: 600;
   color: var(--text);
   margin-bottom: 6px;
 }
 
 .edu-school {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--green-dim);
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .edu-detail {
@@ -655,11 +685,106 @@ h2 em {
 
 .edu-year {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 48px;
+  font-size: clamp(28px, 5vw, 48px);
   font-weight: 300;
   color: var(--border);
   letter-spacing: -0.02em;
   line-height: 1;
+  white-space: nowrap;
+}
+
+/* ─── LAB WORK GALLERY ─── */
+.labwork-intro {
+  color: var(--text-dim);
+  font-size: 13px;
+  line-height: 1.9;
+  max-width: 700px;
+  margin-bottom: 52px;
+}
+
+.labwork-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.labwork-card {
+  background: var(--cell);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.labwork-card:hover {
+  border-color: var(--green-dim);
+  transform: translateY(-4px);
+}
+
+.labwork-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #071a14;
+}
+
+.labwork-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease, filter 0.3s ease;
+  filter: saturate(0.7) brightness(0.85);
+}
+
+.labwork-card:hover .labwork-img {
+  transform: scale(1.04);
+  filter: saturate(1) brightness(1);
+}
+
+.labwork-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 10px 14px;
+  background: linear-gradient(to top, rgba(4,16,13,0.9), transparent);
+  display: flex;
+  align-items: flex-end;
+}
+
+.labwork-tag {
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green);
+  background: var(--green-pale);
+  border: 1px solid var(--border);
+  padding: 3px 10px;
+}
+
+.labwork-body {
+  padding: 20px 22px 24px;
+  position: relative;
+}
+
+.labwork-num {
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  color: var(--green-dim);
+  margin-bottom: 6px;
+}
+
+.labwork-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.labwork-desc {
+  font-size: 11px;
+  color: var(--text-dim);
+  line-height: 1.9;
 }
 
 /* ─── CONTACT ─── */
@@ -680,7 +805,7 @@ h2 em {
 .contact-links {
   display: flex;
   justify-content: center;
-  gap: 24px;
+  gap: 16px;
   flex-wrap: wrap;
 }
 
@@ -689,14 +814,14 @@ h2 em {
   align-items: center;
   gap: 10px;
   border: 1px solid var(--border);
-  padding: 16px 28px;
+  padding: 16px 24px;
   text-decoration: none;
   color: var(--text-dim);
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   transition: all 0.2s;
-  cursor: none;
+  cursor: pointer;
 }
 
 .contact-link:hover {
@@ -708,6 +833,7 @@ h2 em {
 .contact-link svg {
   width: 16px;
   height: 16px;
+  flex-shrink: 0;
 }
 
 /* ─── FOOTER ─── */
@@ -741,22 +867,243 @@ footer {
 ::-webkit-scrollbar-track  { background: var(--bg); }
 ::-webkit-scrollbar-thumb  { background: var(--green-dim); border-radius: 2px; }
 
-/* ─── RESPONSIVE ─── */
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* ─── TABLET (max 900px) ─── */
 @media (max-width: 900px) {
-  nav { padding: 16px 24px; }
-  .nav-links { gap: 20px; }
-  section { padding: 70px 24px; }
-  #hero { padding: 100px 24px 60px; }
-  .hero-inner { grid-template-columns: 1fr; gap: 60px; }
-  .hero-right { display: none; }
-  #about .about-grid { grid-template-columns: 1fr; }
-  #skills .skills-grid { grid-template-columns: 1fr 1fr; }
-  .edu-card { grid-template-columns: 1fr; }
-  .edu-year { font-size: 32px; }
+  nav {
+    padding: 16px 24px;
+  }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--bg);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+    z-index: 150;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+    letter-spacing: 0.22em;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  section {
+    padding: 70px 24px;
+  }
+
+  #hero {
+    padding: 100px 24px 60px;
+    min-height: auto;
+    padding-bottom: 80px;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-right {
+    display: none;
+  }
+
+  #about .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-photo {
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  #skills .skills-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .labwork-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .edu-card {
+    padding: 24px;
+  }
+
+  footer {
+    padding: 20px 24px;
+  }
 }
 
+/* ─── MOBILE (max 600px) ─── */
 @media (max-width: 600px) {
-  #skills .skills-grid { grid-template-columns: 1fr; }
-  .contact-links { flex-direction: column; align-items: center; }
-  footer { flex-direction: column; gap: 8px; text-align: center; }
+  section {
+    padding: 60px 18px;
+  }
+
+  #hero {
+    padding: 90px 18px 60px;
+  }
+
+  .hero-tag {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+  }
+
+  .hero-desc {
+    font-size: 12px;
+  }
+
+  .hero-cta {
+    padding: 12px 20px;
+    font-size: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  #skills .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-card {
+    padding: 22px 18px;
+  }
+
+  #experience .exp-timeline {
+    padding-left: 28px;
+  }
+
+  .exp-item::before {
+    left: -32px;
+  }
+
+  .exp-item {
+    margin-bottom: 44px;
+  }
+
+  .labwork-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .labwork-body {
+    padding: 16px 18px 20px;
+  }
+
+  .edu-card {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 20px 18px;
+  }
+
+  .edu-year {
+    font-size: 22px;
+    color: var(--green-dim);
+  }
+
+  .contact-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-link {
+    justify-content: center;
+    padding: 14px 20px;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+    padding: 18px;
+  }
+
+  .cert-item {
+    gap: 12px;
+  }
+
+  .cert-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+}
+
+/* ─── SMALL MOBILE (max 380px) ─── */
+@media (max-width: 380px) {
+  section {
+    padding: 50px 14px;
+  }
+
+  #hero {
+    padding: 80px 14px 50px;
+  }
+
+  .nav-logo {
+    font-size: 18px;
+  }
+
+  h2 {
+    margin-bottom: 28px;
+  }
+
+  .about-text p {
+    font-size: 12px;
+  }
+
+  .exp-desc {
+    font-size: 11px;
+  }
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 200;
+  background: none;
+  border: none;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--green);
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav-toggle.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.nav-toggle.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: flex;
+  }
 }

@@ -17,16 +17,23 @@
   <canvas id="bio-canvas"></canvas>
 
   <!-- NAV -->
-  <nav>
-    <a href="#hero" class="nav-logo">G. Patel</a>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">G. Patel</a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#labwork">Lab Work</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-toggle" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</nav>
 
   <div class="sections">
 
@@ -97,13 +104,15 @@
               <div>
                 <div class="cert-name">Pharmacy Assistant Certification</div>
                 <div class="cert-org">Alison · Issued Jun 2024</div>
+                <div class="cert-org">Credential ID: AC-4735-37920676</div>
+                <a href="https://alison.com/certification/check" target="_blank" class="cert-link">Show Credential ↗</a>
               </div>
             </div>
             <div class="cert-item reveal">
               <div class="cert-icon">△</div>
               <div>
                 <div class="cert-name">Associate of Science — Biology</div>
-                <div class="cert-org">Capilano University · 2024</div>
+                <div class="cert-org">Capilano University · 2025</div>
               </div>
             </div>
           </div>
@@ -121,16 +130,33 @@
 
         <div class="skill-card reveal">
           <div class="skill-petri"><canvas class="petri-anim" data-color="0,232,162"></canvas></div>
-          <div class="skill-title">Laboratory Science</div>
-          <div class="skill-desc">Proficient in clinical lab techniques including microscopy, specimen preparation, and sterile procedures.</div>
+          <div class="skill-title">Laboratory & Scientific</div>
+          <div class="skill-desc">Hands-on experience with microbiology, aseptic techniques, solution and media preparation, and sample handling in controlled lab environments.</div>
           <div class="skill-tags">
-            <span class="skill-tag">Microscopy</span>
-            <span class="skill-tag">Specimen Prep</span>
-            <span class="skill-tag">Sterile Technique</span>
             <span class="skill-tag">Microbiology</span>
+            <span class="skill-tag">Aseptic Technique</span>
+            <span class="skill-tag">Media Preparation</span>
+            <span class="skill-tag">WHMIS Compliance</span>
+            <span class="skill-tag">Molecular Biology</span>
+            <span class="skill-tag">Sample Handling</span>
+            <span class="skill-tag">Data Recording</span>
           </div>
         </div>
 
+        <div class="skill-card reveal">
+          <div class="skill-petri"><canvas class="petri-anim" data-color="100,200,255"></canvas></div>
+          <div class="skill-title">Technical</div>
+          <div class="skill-desc">Proficient in Microsoft Office Suite and Google Workspace, with experience in data entry, digital record keeping, and basic statistical analysis.</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Microsoft Excel</span>
+            <span class="skill-tag">Microsoft Word</span>
+            <span class="skill-tag">PowerPoint</span>
+            <span class="skill-tag">Google Workspace</span>
+            <span class="skill-tag">Data Entry</span>
+            <span class="skill-tag">Digital Records</span>
+            <span class="skill-tag">Statistical Analysis</span>
+          </div>
+        </div>
 
         <div class="skill-card reveal">
           <div class="skill-petri"><canvas class="petri-anim" data-color="200,100,255"></canvas></div>
@@ -146,23 +172,44 @@
 
         <div class="skill-card reveal">
           <div class="skill-petri"><canvas class="petri-anim" data-color="0,232,162"></canvas></div>
-          <div class="skill-title">Research & Analysis</div>
-          <div class="skill-desc">Skilled in scientific documentation, data interpretation, and report writing for academic and lab settings.</div>
+          <div class="skill-title">Research & Academic</div>
+          <div class="skill-desc">Skilled in scientific literature review, experimental design support, data interpretation, report writing, and academic poster preparation.</div>
           <div class="skill-tags">
-            <span class="skill-tag">Lab Reports</span>
-            <span class="skill-tag">Data Analysis</span>
-            <span class="skill-tag">Scientific Writing</span>
+            <span class="skill-tag">Literature Review</span>
+            <span class="skill-tag">Report Writing</span>
+            <span class="skill-tag">Experimental Design</span>
+            <span class="skill-tag">Data Interpretation</span>
+            <span class="skill-tag">Poster Preparation</span>
+            <span class="skill-tag">Presentations</span>
           </div>
         </div>
 
         <div class="skill-card reveal">
           <div class="skill-petri"><canvas class="petri-anim" data-color="240,192,96"></canvas></div>
-          <div class="skill-title">Soft Skills & Professionalism</div>
-          <div class="skill-desc">Strong communicator, team collaborator, and detail-oriented professional committed to continuous learning and growth.</div>
+          <div class="skill-title">Professional</div>
+          <div class="skill-desc">Strong written and verbal communicator with proven customer service experience, team collaboration in fast-paced environments, and sharp problem-solving abilities.</div>
           <div class="skill-tags">
-            <span class="skill-tag">Teamwork</span>
-            <span class="skill-tag">Attention to Detail</span>
+            <span class="skill-tag">Communication</span>
+            <span class="skill-tag">Customer Service</span>
+            <span class="skill-tag">Team Collaboration</span>
             <span class="skill-tag">Time Management</span>
+            <span class="skill-tag">Problem Solving</span>
+            <span class="skill-tag">Attention to Detail</span>
+            <span class="skill-tag">Documentation</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-petri"><canvas class="petri-anim" data-color="240,192,96"></canvas></div>
+          <div class="skill-title">Additional Strengths</div>
+          <div class="skill-desc">Natural leader and peer mentor with strong adaptability, cross-cultural communication, and the ability to work both independently and within diverse teams.</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Leadership</span>
+            <span class="skill-tag">Peer Mentoring</span>
+            <span class="skill-tag">Cross-Cultural Comm.</span>
+            <span class="skill-tag">Adaptability</span>
+            <span class="skill-tag">Quick Learning</span>
+            <span class="skill-tag">Independent Work</span>
           </div>
         </div>
 
@@ -211,9 +258,78 @@
 
     <hr class="divider">
 
+    <!-- LAB WORK GALLERY -->
+    <section id="labwork">
+      <div class="section-label reveal">04 — Laboratory Work</div>
+      <h2 class="reveal">Lab <em>Gallery</em></h2>
+      <p class="labwork-intro reveal">A visual record of hands-on laboratory work conducted during academic training at Capilano University — demonstrating practical application of scientific techniques across biology and chemistry.</p>
+
+      <div class="labwork-grid">
+
+        <div class="labwork-card reveal">
+          <div class="labwork-img-wrap">
+            <img src="lab1.jpg" alt="Microscopy Imaging" class="labwork-img" />
+            <div class="labwork-overlay">
+              <span class="labwork-tag">Polarized Light · Microscopy</span>
+            </div>
+          </div>
+          <div class="labwork-body">
+            <div class="labwork-num">01</div>
+            <div class="labwork-title">Microscopy Imaging</div>
+            <div class="labwork-desc">Captured polarized light micrographs demonstrating crystalline structures and birefringence patterns for material and biological sample analysis.</div>
+          </div>
+        </div>
+
+        <div class="labwork-card reveal">
+          <div class="labwork-img-wrap">
+            <img src="lab2.jpg" alt="Stained Specimen Analysis" class="labwork-img" />
+            <div class="labwork-overlay">
+              <span class="labwork-tag">Bright-Field · Staining</span>
+            </div>
+          </div>
+          <div class="labwork-body">
+            <div class="labwork-num">02</div>
+            <div class="labwork-title">Stained Specimen Analysis</div>
+            <div class="labwork-desc">Bright-field microscopy of stained biological specimens highlighting cellular morphology and structural features for comparative analysis and measurement.</div>
+          </div>
+        </div>
+
+        <div class="labwork-card reveal">
+          <div class="labwork-img-wrap">
+            <img src="lab3.jpg" alt="Laboratory Instrumentation & Dissection" class="labwork-img" />
+            <div class="labwork-overlay">
+              <span class="labwork-tag">Stereomicroscopy · Dissection</span>
+            </div>
+          </div>
+          <div class="labwork-body">
+            <div class="labwork-num">03</div>
+            <div class="labwork-title">Instrumentation & Dissection</div>
+            <div class="labwork-desc">Hands-on experience with stereomicroscopy, specimen preparation, and precision dissection using standard laboratory instruments under controlled conditions.</div>
+          </div>
+        </div>
+
+        <div class="labwork-card reveal">
+          <div class="labwork-img-wrap">
+            <img src="lab4.jpg" alt="Cup Calorimetry Setup" class="labwork-img" />
+            <div class="labwork-overlay">
+              <span class="labwork-tag">Calorimetry · Thermodynamics</span>
+            </div>
+          </div>
+          <div class="labwork-body">
+            <div class="labwork-num">04</div>
+            <div class="labwork-title">Cup Calorimetry Setup</div>
+            <div class="labwork-desc">Determination of heat transfer using a cup calorimeter, with the reaction mixture in an insulated vessel on a hot plate with magnetic stirring. A temperature probe monitors changes for enthalpy calculations.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="divider">
+
     <!-- EDUCATION -->
     <section id="education">
-      <div class="section-label reveal">04 — Academic</div>
+      <div class="section-label reveal">05 — Academic</div>
       <h2 class="reveal">Education &amp; <em>Training</em></h2>
 
       <div class="edu-card reveal">
@@ -234,14 +350,13 @@
         <div class="edu-year">2024</div>
       </div>
 
-
     </section>
 
     <hr class="divider">
 
     <!-- CONTACT -->
     <section id="contact">
-      <div class="section-label reveal" style="justify-content:center;">05 — Get in Touch</div>
+      <div class="section-label reveal" style="justify-content:center;">06 — Get in Touch</div>
       <h2 class="reveal">Let's <em>Connect</em></h2>
       <p class="contact-sub reveal">Open to opportunities in life sciences, healthcare &amp; pharmaceutical sectors.</p>
       <div class="contact-links reveal">
@@ -264,8 +379,8 @@
 
   <!-- FOOTER -->
   <footer>
-    <span>© 2024 Gargi Patel · Life Sciences</span>
-    <span> Vancouver, BC · Canada</span>
+    <span>© 2025 Gargi Patel · Life Sciences</span>
+    <span>Vancouver, BC · Canada</span>
   </footer>
 
   <script src="script.js"></script>
